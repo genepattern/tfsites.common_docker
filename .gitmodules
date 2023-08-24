@@ -1,0 +1,3 @@
+[submodule "tfsites-webportal"]
+	path = tfsites-webportal
+	url = https://github.com/jsolvason/tfsites-webportal.git

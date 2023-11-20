@@ -4,6 +4,8 @@ RUN mkdir -p /build
 
 COPY tfsites-webportal /build/tfsites-webportal 
 
+ENV PYTHONPATH "${PYTHONPATH}:/build/tfsites-webportal"
+
 RUN pip install pandas Bio matplotlib
 
 

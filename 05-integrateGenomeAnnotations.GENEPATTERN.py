@@ -10,9 +10,11 @@ helpMessage='''5-integrateGenomeAnnotations.py finds all possible SNVs and their
   -B --bedlist          File containing list of bed files, one per line'''
 
 def main(argv):
-   file, bed, zero_pos, outfile = '', '', '', ''
+   file, bed, bedlist, zero_pos, outfile = '', '', '', '', ''
    opts, args = getopt.getopt(argv,"h:f:b:z:o:B",["file=", "bed=", "zero_pos=", "outfile=", "bedlist="]) 
 
+   print(f"OPTS ARE {opts}")
+   print(f"ARGS ARE {args}")
    # define argument results 
    for opt, arg in opts:
     if opt == '-h':
@@ -32,7 +34,7 @@ def main(argv):
 
     # error messages
    if file == '': print('Must specify input file'); sys.exit()
-   if bed == '' and bedlist =="" : print('Must specify bed files(s)'); sys.exit()
+   if bed == '' and bedlist =='' : print('Must specify bed files(s)'); sys.exit()
    if zero_pos == '': print('Must specify whether coordinates are 0-indexed'); sys.exit()
    print(file, bed, zero_pos, outfile) 
    if outfile == '': print('Must specify output file name'); sys.exit()

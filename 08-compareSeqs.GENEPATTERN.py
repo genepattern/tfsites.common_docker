@@ -42,9 +42,9 @@ def main(argv):
         tfnormpbmsFileList = arg
 
     # error messages
-   if tfnames == '' and tfnormpbmsFileList='': print('Must specify list of TF names'); sys.exit()
+   if tfnames == '': print('Must specify list of TF names'); sys.exit()
    if tfiupacs == '': print('Must specify list of TF IUPACs'); sys.exit()
-   if tfnormpbms == '': print('Must specify list of TF normalized PBM files'); sys.exit()
+   if tfnormpbms == ''  and tfnormpbmsFileList =='': print('Must specify list of TF normalized PBM files'); sys.exit()
    if seq1 == '': print('Must specify the first sequence'); sys.exit()
    if seq2 == '': print('Must specify the second sequence'); sys.exit()
    if seq1name == '': print('Must specify the name of the first sequence'); sys.exit()

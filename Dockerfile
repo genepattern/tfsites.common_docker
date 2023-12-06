@@ -10,4 +10,4 @@ RUN pip install pandas Bio matplotlib
 RUN apt-get update && apt-get install bedtools && apt-get clean
 
 COPY 05-integrateGenomeAnnotations.GENEPATTERN.py /build/tfsites-webportal/05-integrateGenomeAnnotations/05-integrateGenomeAnnotations.GENEPATTERN.py
-
+COPY 08-compareSeqs.GENEPATTERN.py tfsites-webportal/08-compareSeqs/08-compareSeqs.py

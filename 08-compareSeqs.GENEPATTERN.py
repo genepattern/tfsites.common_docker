@@ -41,6 +41,13 @@ def main(argv):
     elif opt in ("-P", "--tfnormbpmsfilelist"):
         tfnormpbmsFileList = arg
 
+
+    for o in opts:
+        print(f"opt {o}")
+    for a in args:
+        print(f"arg {a}")
+
+
     # error messages
    if tfnames == '': print('Must specify list of TF names'); sys.exit()
    if tfiupacs == '': print('Must specify list of TF IUPACs'); sys.exit()

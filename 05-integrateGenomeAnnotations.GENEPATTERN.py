@@ -11,10 +11,8 @@ helpMessage='''5-integrateGenomeAnnotations.py finds all possible SNVs and their
 
 def main(argv):
    file, bed, bedlist, zero_pos, outfile = '', '', '', '', ''
-   opts, args = getopt.getopt(argv,"h:f:b:z:o:B",["file=", "bed=", "zero_pos=", "outfile=", "bedlist="]) 
+   opts, args = getopt.getopt(argv,"h:f:b:z:o:B:",["file=", "bed=", "zero_pos=", "outfile=", "bedlist="]) 
 
-   print(f"OPTS ARE {opts}")
-   print(f"ARGS ARE {args}")
    # define argument results 
    for opt, arg in opts:
     if opt == '-h':
@@ -43,11 +41,10 @@ def main(argv):
         bed_list = bed.split(',') # create bed file list
    elif not bedlist == "":
         # read the list file to make the list
-        with open(filename) as file:
-            bed_list = [line.rstrip() for line in file]
+        with open(bedlist) as bedlistfile:
+            bed_list = [line.rstrip() for line in bedlistfile]
    else:
        print()
-
 
 
    tf.integrateGenomeAnnotations(file, bed_list, zero_pos, outfile)

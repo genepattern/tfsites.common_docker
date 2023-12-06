@@ -41,13 +41,6 @@ def main(argv):
     elif opt in ("-P", "--tfnormbpmsfilelist"):
         tfnormpbmsFileList = arg
 
-
-    for o in opts:
-        print(f"opt {o}")
-    for a in args:
-        print(f"arg {a}")
-
-
     # error messages
    if tfnames == '': print('Must specify list of TF names'); sys.exit()
    if tfiupacs == '': print('Must specify list of TF IUPACs'); sys.exit()
@@ -60,11 +53,16 @@ def main(argv):
 
    tfnames_list = tfnames.split(',')
    tfiupacs_list = tfiupacs.split(',')
-   if not tfnames == '':
+   if not tfnormpbms == '':
        tfnormpbms_list = tfnormpbms.split(',')
-   elif  not tfnormpbmsFileList == '':
+   elif not tfnormpbmsFileList == '':
        with open(tfnormpbmsFileList) as file:
            tfnormpbms_list = [line.rstrip() for line in file]
+
+   print(f"1.{tfnormpbms}   2. {tfnormpbmsFileList}")
+
+   for afile in tfnormpbms_list:
+       print(f"file is {afile}")
 
    tf.reportSequenceChangeEffects_batchTf(tfnames_list, tfiupacs_list, tfnormpbms_list, seq1, seq2, seq1name, seq2name, outfile) 
 

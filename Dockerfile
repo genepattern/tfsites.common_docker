@@ -23,3 +23,4 @@ RUN apt-get update && apt-get install bedtools && apt-get clean
 
 
 RUN chmod a+x /build/tfsites-webportal/*.sh
+RUN . /usr/local/phenix-1.21.2-5419/phenix_env.sh

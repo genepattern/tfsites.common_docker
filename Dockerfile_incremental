@@ -1,0 +1,6 @@
+FROM genepattern/tfsites:15
+
+
+COPY tfsites-webportal /build/tfsites-webportal 
+
+

@@ -2,5 +2,6 @@ FROM genepattern/tfsites:15
 
 
 COPY tfsites-webportal /build/tfsites-webportal 
-
+RUN chmod a+x /build/tfsites-webportal/*.sh
+RUN apt-get install vim --yes
 

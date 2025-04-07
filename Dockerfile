@@ -30,3 +30,13 @@ ENV PHENIX=/usr/local/phenix-1.21.2-5419
 ENV LIBTBX_TMPVAL=
 ENV LIBTBX_OPATH=
 ENV LIBTBX_BUILD=
+
+
+COPY maxit-v8.120-prod-bin-linux.tar.gz  /build/maxit-v8.120-prod-bin-linux.tar.gz
+RUN cd /build && \
+     zcat maxit-v8.120-prod-bin-linux.tar.gz | tar -xf - && \
+     export RCSBROOT=/build/maxit-v8.120-prod-bin-linux && \
+     export PATH=$RCSBROOT/bin:$PATH  && \
+     cd /build/maxit-v8.120-prod-bin-linux/etc && \
+     ./binary.sh
+

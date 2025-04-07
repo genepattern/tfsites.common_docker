@@ -1,17 +1,17 @@
-FROM genepattern/tfsites:15
+FROM genepattern/tfsites:15.5.1
 
 
 COPY tfsites-webportal /build/tfsites-webportal 
 RUN chmod a+x /build/tfsites-webportal/*.sh
-RUN apt-get install vim --yes
+#RUN apt-get install vim --yes
 
-COPY maxit-v8.120-prod-bin-linux.tar.gz  /build/maxit-v8.120-prod-bin-linux.tar.gz 
-RUN cd /build && \
-     zcat maxit-v8.120-prod-bin-linux.tar.gz | tar -xf - && \
-     export RCSBROOT=/build/maxit-v8.120-prod-bin-linux && \
-     export PATH=$RCSBROOT/bin:$PATH  && \
-     cd /build/maxit-v8.120-prod-bin-linux/etc && \
-     ./binary.sh  
+#COPY maxit-v8.120-prod-bin-linux.tar.gz  /build/maxit-v8.120-prod-bin-linux.tar.gz 
+#RUN cd /build && \
+#     zcat maxit-v8.120-prod-bin-linux.tar.gz | tar -xf - && \
+#     export RCSBROOT=/build/maxit-v8.120-prod-bin-linux && \
+#     export PATH=$RCSBROOT/bin:$PATH  && \
+#     cd /build/maxit-v8.120-prod-bin-linux/etc && \
+#     ./binary.sh  
 
 
 

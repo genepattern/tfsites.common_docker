@@ -20,8 +20,11 @@ RUN apt-get update && \
     apt-get clean && \
     apt-get install -y --no-install-recommends software-properties-common && \
     rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
-RUN    sed -i 's/main/main contrib non-free/' /etc/apt/sources.list 
-RUN    apt install ttf-mscorefonts-installer -y   
+
+RUN sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
+    apt-get update && \
+    apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
+    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
 RUN    rm ~/.cache/matplotlib -rf 
 RUN    python3 -c "import matplotlib.font_manager; matplotlib.font_manager._load_fontmanager()" 

@@ -1,5 +1,6 @@
-FROM genepattern/tfsites:15.5.1
+FROM genepattern/tfsites:16.2
 
+RUN rm -rf /build/tfsites-webportal/.git
 COPY tfsites-webportal /build/tfsites-webportal 
 
 
@@ -7,27 +8,27 @@ RUN chmod a+x /build/tfsites-webportal/*.sh
 #RUN apt-get install vim --yes
 
 # to get the courier new font
-RUN apt-get update && apt-get install -y fonts-dejavu-core
+#RUN apt-get update && apt-get install -y fonts-dejavu-core
 
 
-RUN pip install seaborn
-RUN pip install markdown psutil jinja2
-RUN pip install numpy==1.26.4
+#RUN pip install seaborn
+#RUN pip install markdown psutil jinja2
+#RUN pip install numpy==1.26.4
 
 # PITA attempt to install courier font
-ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && \
-    apt-get clean && \
-    apt-get install -y --no-install-recommends software-properties-common && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+#ENV DEBIAN_FRONTEND=noninteractive
+#RUN apt-get update && \
+#    apt-get clean && \
+#    apt-get install -y --no-install-recommends software-properties-common && \
+#    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
-RUN sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
-    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
+#RUN sed -i 's/main/main contrib non-free/' /etc/apt/sources.list && \
+#    apt-get update && \
+#    apt-get install -y --no-install-recommends ttf-mscorefonts-installer && \
+#    rm -rf /var/lib/apt/lists/* /var/cache/apt/archives/*
 
-RUN    rm ~/.cache/matplotlib -rf 
-RUN    python3 -c "import matplotlib.font_manager; matplotlib.font_manager._load_fontmanager()" 
+#RUN    rm ~/.cache/matplotlib -rf 
+#RUN    python3 -c "import matplotlib.font_manager; matplotlib.font_manager._load_fontmanager()" 
 
 
 

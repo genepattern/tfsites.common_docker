@@ -1,5 +1,4 @@
-#!/bin/bash
+# to build on my m4 mac
 
-
-docker build --platform linux/amd64 -t genepattern/tfsites:0.15.3 .
+docker buildx build --tag genepattern/tfsites:17.0.2.1 -f Dockerfile -o type=image --platform=ilinux/arm64 --push  .
 
